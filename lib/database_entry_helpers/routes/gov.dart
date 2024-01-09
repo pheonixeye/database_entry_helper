@@ -24,7 +24,7 @@ class GovernorateController extends ResourceController {
       _govs.forEach((element) async {
         await db.createDocument(
           databaseId: AppConfig.DATABASE_CONSTANT,
-          collectionId: AppConfig.DATABASE_CONSTANT_GOVERNORATES,
+          collectionId: AppConfig.DATABASE_CONSTANT_COLLECTION_GOVERNORATES,
           documentId: ID.unique(),
           data: element.toJson(),
         );

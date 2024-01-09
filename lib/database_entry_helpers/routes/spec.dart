@@ -13,7 +13,7 @@ class SpecialityController extends ResourceController {
       specs.forEach((element) async {
         await db.createDocument(
           databaseId: AppConfig.DATABASE_CONSTANT,
-          collectionId: AppConfig.DATABASE_CONSTANT_SPECIALITIES,
+          collectionId: AppConfig.DATABASE_CONSTANT_COLLECTION_SPECIALITIES,
           documentId: ID.unique(),
           data: element.toJson(),
         );

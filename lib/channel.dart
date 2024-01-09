@@ -1,4 +1,5 @@
 import 'package:doctopia_helper_server/database_entry_helpers/routes/city.dart';
+import 'package:doctopia_helper_server/database_entry_helpers/routes/doctor_collection_scheme.dart';
 import 'package:doctopia_helper_server/database_entry_helpers/routes/gov.dart';
 import 'package:doctopia_helper_server/database_entry_helpers/routes/spec.dart';
 import 'package:doctopia_helper_server/doctopia_helper_server.dart';
@@ -35,6 +36,7 @@ class DoctopiaHelperServerChannel extends ApplicationChannel {
     router.route("/gov").link(GovernorateController.new);
     router.route("/city").link(CityController.new);
     router.route("/spec").link(SpecialityController.new);
+    router.route("/doc-scheme").link(DoctorCollectionScheme.new);
 
     return router;
   }

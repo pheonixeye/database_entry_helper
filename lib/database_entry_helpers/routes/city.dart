@@ -2,9 +2,9 @@ import 'dart:convert';
 
 import 'package:dart_appwrite/dart_appwrite.dart' show Databases, ID;
 import 'package:doctopia_helper_server/appwrite/config.dart';
-import 'package:doctopia_helper_server/doctopia_helper_server.dart';
 import 'package:doctopia_helper_server/database_entry_helpers/models/city.dart';
 import 'package:doctopia_helper_server/database_entry_helpers/models/governorate.dart';
+import 'package:doctopia_helper_server/doctopia_helper_server.dart';
 
 class CityController extends ResourceController {
   Future<List<City>> _loadJsonCity() async {
@@ -30,7 +30,7 @@ class CityController extends ResourceController {
       _cities.forEach((element) async {
         await db.createDocument(
           databaseId: AppConfig.DATABASE_CONSTANT,
-          collectionId: AppConfig.DATABASE_CONSTANT_CITIES,
+          collectionId: AppConfig.DATABASE_CONSTANT_COLLECTION_CITIES,
           documentId: ID.unique(),
           data: element.toJson(),
         );
