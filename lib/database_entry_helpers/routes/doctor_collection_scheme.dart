@@ -35,7 +35,7 @@ class DoctorCollectionScheme extends ResourceController {
         databaseId: AppConfig.DATABASE_DOCTORS,
         collectionId: AppConfig.DATABASE_DOCTORS_COLLECTION_DOCTORS,
         key: key,
-        size: 50,
+        size: 100,
         xrequired: true,
       );
     });

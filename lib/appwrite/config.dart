@@ -12,6 +12,7 @@ class AppConfig {
   //-------------------------------------------------------------------//
   static const String DATABASE_CONSTANT = "659712fb491b78a6a3eb";
   static const String DATABASE_DOCTORS = "6597130537d821724e3a";
+  static const String DATABASE_CLINICS = "6597130e75340bbe78b5";
   //-------------------------------------------------------------------//
   static const String DATABASE_CONSTANT_COLLECTION_GOVERNORATES =
       "65971420ddeab946eabd";
@@ -21,6 +22,8 @@ class AppConfig {
       "6597143473d5a3144e13";
   static const String DATABASE_DOCTORS_COLLECTION_DOCTORS =
       "65993582811a4a88e828";
+  static const String DATABASE_CLINICS_COLLECTION_CLINICS =
+      "659c20de23dc45c0bd70";
   //-------------------------------------------------------------------//
 
   static final Client _client = Client(
