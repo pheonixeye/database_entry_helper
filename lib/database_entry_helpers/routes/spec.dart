@@ -1,16 +1,28 @@
+import 'dart:convert';
+
+import 'package:csv/csv.dart';
 import 'package:dart_appwrite/dart_appwrite.dart' show Databases, ID;
 import 'package:doctopia_helper_server/appwrite/config.dart';
-import 'package:doctopia_helper_server/doctopia_helper_server.dart';
 import 'package:doctopia_helper_server/database_entry_helpers/models/speciality.dart';
+import 'package:doctopia_helper_server/doctopia_helper_server.dart';
 
 class SpecialityController extends ResourceController {
   @Operation.get()
   Future<Response> addCitiesToAppWrite() async {
-    final specs = Speciality.list;
+    final input = File('./specs.csv').openRead();
+    final fields = await input
+        .transform(utf8.decoder)
+        .transform(const CsvToListConverter())
+        .toList();
+    fields.removeAt(0);
+    final specs = fields.map((e) {
+      return Speciality(en: e[0] as String, ar: e[1] as String);
+    }).toList();
+    final List<Speciality> toAdd = specs.reversed.toList();
     final client = AppConfig.client;
     final Databases db = Databases(client);
     try {
-      specs.forEach((element) async {
+      toAdd.forEach((element) async {
         await db.createDocument(
           databaseId: AppConfig.DATABASE_CONSTANT,
           collectionId: AppConfig.DATABASE_CONSTANT_COLLECTION_SPECIALITIES,
@@ -18,7 +30,7 @@ class SpecialityController extends ResourceController {
           data: element.toJson(),
         );
       });
-      return Response.ok('Complete');
+      return Response.ok(specs);
     } catch (e) {
       return Response.serverError(body: e.toString());
     }

@@ -134,6 +134,12 @@
       "languageVersion": "2.19"
     },
     {
+      "name": "csv",
+      "rootUri": "file:///C:/Users/KareemZaher/AppData/Local/Pub/Cache/hosted/pub.dev/csv-5.1.1",
+      "packageUri": "lib/",
+      "languageVersion": "2.12"
+    },
+    {
       "name": "dart_appwrite",
       "rootUri": "file:///C:/Users/KareemZaher/AppData/Local/Pub/Cache/hosted/pub.dev/dart_appwrite-10.1.0",
       "packageUri": "lib/",
@@ -434,7 +440,7 @@
       "languageVersion": "3.1"
     }
   ],
-  "generated": "2024-01-01T21:36:41.686599Z",
+  "generated": "2024-02-17T20:12:45.872350Z",
   "generator": "pub",
   "generatorVersion": "3.2.0"
 }
