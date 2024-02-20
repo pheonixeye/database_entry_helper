@@ -15,9 +15,12 @@ class SpecialityController extends ResourceController {
         .transform(const CsvToListConverter())
         .toList();
     fields.removeAt(0);
-    final specs = fields.map((e) {
-      return Speciality(en: e[0] as String, ar: e[1] as String);
-    }).toList();
+    final List<Speciality> specs = [];
+    for (int i = 0; i < fields.length; i++) {
+      specs.add(Speciality(
+          en: fields[i][0] as String, ar: fields[i][1] as String, id: i));
+    }
+
     final List<Speciality> toAdd = specs.reversed.toList();
     final client = AppConfig.client;
     final Databases db = Databases(client);

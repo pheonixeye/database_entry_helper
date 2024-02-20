@@ -98,26 +98,29 @@ class Speciality extends Equatable {
   const Speciality({
     required this.en,
     required this.ar,
+    required this.id,
   });
   final String en;
   final String ar;
+  final int id;
 
-  static List<Speciality> get list {
-    return _specialitiesEN.map((e) {
-      return Speciality(
-        en: e,
-        ar: _specialitiesAR.elementAt(_specialitiesEN.indexOf(e)),
-      );
-    }).toList();
-  }
+  // static List<Speciality> get list {
+  //   return _specialitiesEN.map((e) {
+  //     return Speciality(
+  //       en: e,
+  //       ar: _specialitiesAR.elementAt(_specialitiesEN.indexOf(e)),
+  //     );
+  //   }).toList();
+  // }
 
   Map<String, dynamic> toJson() {
     return {
+      "spec_id": id,
       'speciality_en': en,
       'speciality_ar': ar,
     };
   }
 
   @override
-  List<Object?> get props => [en, ar];
+  List<Object?> get props => [en, ar, id];
 }
